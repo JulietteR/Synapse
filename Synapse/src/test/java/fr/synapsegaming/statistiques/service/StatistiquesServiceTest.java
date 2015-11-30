@@ -19,6 +19,12 @@ public class StatistiquesServiceTest extends AbstractServiceTest {
 		assertTrue(statistiquesService.listFiveClassesMostPlayed().size() == RECORD_NUMBER_EXPECTED);
 	}
 
+	@Test
+	public void testlistFiverRacesMostPlayed() {
+		assertTrue(statistiquesService.listFiveRacesMostPlayed().size() == RECORD_NUMBER_EXPECTED);
+	}
+
+
 
 
 }

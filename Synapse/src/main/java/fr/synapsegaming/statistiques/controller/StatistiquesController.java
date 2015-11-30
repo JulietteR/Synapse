@@ -33,7 +33,7 @@ public class StatistiquesController extends AbstractController {
     /**
      * The default constructor to initialize the page
      * 
-     * @param request
+     * 
      *            : the HttpRequest sent
      * @return modelAndView
      */
@@ -44,9 +44,10 @@ public class StatistiquesController extends AbstractController {
         page.addObject("resources", resourceService.listMainMenu());
         if (user != null)
             page.addObject("userResources", resourceService.listUserResources(user.getGroup().getId()));
-        page.addObject("fiveMostPlayedClasses", statistiquesService.listFiveClassesMostPlayed());
+            page.addObject("fiveMostPlayedClasses", statistiquesService.listFiveClassesMostPlayed());
+            page.addObject("fiveMostPlayedRaces", statistiquesService.listFiveRacesMostPlayed());
         return page;
     }
 
-    
+
 }

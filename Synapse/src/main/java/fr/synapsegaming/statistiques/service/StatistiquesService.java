@@ -3,6 +3,7 @@ package fr.synapsegaming.statistiques.service;
 import java.util.List;
 
 import fr.synapsegaming.statistiques.vo.ClazzMostPlayedVO;
+import fr.synapsegaming.statistiques.vo.RacesMostPlayedVO;
 
 public interface StatistiquesService {
 
@@ -12,4 +13,5 @@ public interface StatistiquesService {
 	 */
 	List<ClazzMostPlayedVO> listFiveClassesMostPlayed();
 
+	List<RacesMostPlayedVO> listFiveRacesMostPlayed();
 }

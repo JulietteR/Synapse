@@ -47,6 +47,12 @@
 		     		<div class="classPlayedNb">${clazzMostPlayed.nbUsers}</div>
 		     	</c:forEach>
 			</div>
+			<div id="races">
+				<c:forEach items="${fiveMostPlayedRaces}" var="racesMostPlayed">
+					<div class="racesPlayedName">${racesMostPlayed.name}</div>
+					<div class="racesPlayedNb">${racesMostPlayed.nbUsers}</div>
+				</c:forEach>
+			</div>
 		</div>
 	</div>
 	<div id="footer-wrapper">
