@@ -20,7 +20,7 @@ public class StatistiquesServiceTest extends AbstractServiceTest {
 	}
 
 	@Test
-	public void testlistFiverRacesMostPlayed() {
+	public void testlistFiveRacesMostPlayed() {
 		assertTrue(statistiquesService.listFiveRacesMostPlayed().size() == RECORD_NUMBER_EXPECTED);
 	}
 

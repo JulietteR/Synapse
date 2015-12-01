@@ -26,6 +26,10 @@ import fr.synapsegaming.statistiques.vo.UsersDefaultAvatarVO;
 import fr.synapsegaming.user.dao.UserDao;
 import fr.synapsegaming.user.entity.User;
 
+import fr.synapsegaming.statistiques.vo.ForumMostActiveUsersVO;
+//import fr.synapsegaming.user.dao.UserDao;
+//import fr.synapsegaming.user.entity.User;
+
 
 @Service("StatistiquesService")
 public class StatistiquesServiceImpl implements StatistiquesService{
@@ -85,6 +89,20 @@ public class StatistiquesServiceImpl implements StatistiquesService{
 		return usersDefaultAvatar;
 	}
 
+	@Override
+	public List<SpecsMostPlayedVO> listFiveSpecsMostPlayed() {
+
+		List<Specialization> specializations = specDao.list(Specialization.class);
+		List<SpecsMostPlayedVO> specsMostPlayed = new ArrayList<SpecsMostPlayedVO>();
+
+		for (Specialization spe:specializations){
+			specsMostPlayed.add(new SpecsMostPlayedVO(spe.getName(), spe.getUsers().size()));
+		}
+		Collections.sort(specsMostPlayed);
+
+		return specsMostPlayed.subList(0,5);
+	}
+	
 	@Override
 	public List<SpecsMostPlayedVO> listFiveSpecsMostPlayed() {
 

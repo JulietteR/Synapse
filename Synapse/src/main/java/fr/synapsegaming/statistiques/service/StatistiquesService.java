@@ -3,6 +3,7 @@ package fr.synapsegaming.statistiques.service;
 import java.util.List;
 
 import fr.synapsegaming.statistiques.vo.ClazzMostPlayedVO;
+import fr.synapsegaming.statistiques.vo.ForumMostActiveUsersVO;
 import fr.synapsegaming.statistiques.vo.RacesMostPlayedVO;
 import fr.synapsegaming.statistiques.vo.SpecsMostPlayedVO;
 import fr.synapsegaming.statistiques.vo.UsersDefaultAvatarVO;
@@ -20,4 +21,6 @@ public interface StatistiquesService {
 	List<UsersDefaultAvatarVO> listUsersDefaultAvatar();
 
 	List<SpecsMostPlayedVO> listFiveSpecsMostPlayed();
+	
+	List<ForumMostActiveUsersVO> listUsersMostActive();
 }
