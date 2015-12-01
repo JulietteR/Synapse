@@ -27,6 +27,7 @@ public class ForumMostActiveUsersVO {
     public void setNbUsers(Integer nbUsers) {
         this.nbUsers = nbUsers;
     }
+    
 
     @Override
     public int compareTo(ForumMostActiveUsersVO forumMostActiveUsersVO) {
