@@ -57,6 +57,7 @@
 							<!-- <div class="racesPlayedNb">${racesMostPlayed.nbUsers}</div> -->
 						</c:forEach>
 					</div>
+					<div id="Specs" class="colonneStat">
 					<h2>Top 5 Specs :</h2>
 					<c:forEach items="${fiveMostPlayedSpecs}" var="specsMostPlayed" >
 						<div class="racesPlayedName" >${specsMostPlayed.name} (${specsMostPlayed.nbUsers})</div>
