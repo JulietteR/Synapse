@@ -38,25 +38,32 @@
 	<div id="menu-wrapper">
 		<jsp:include page="portal/Menu.jsp"/>
 	</div>
-	
-	<div id="stat-wrapper">
-		<div id="stat-container">
-			<div id="stat" class="colonneStat">
-				<c:forEach items="${fiveMostPlayedClasses}" var="clazzMostPlayed">
-		     		<div class="classPlayedName">${clazzMostPlayed.name}</div>
-		     		<div class="classPlayedNb">${clazzMostPlayed.nbUsers}</div>
-		     	</c:forEach>
-			</div>
-			<div id="races">
-				<c:forEach items="${fiveMostPlayedRaces}" var="racesMostPlayed">
-					<div class="racesPlayedName">${racesMostPlayed.name}</div>
-					<div class="racesPlayedNb">${racesMostPlayed.nbUsers}</div>
-				</c:forEach>
-			</div>
-			<div id="users-default-avatar">
-				<c:forEach items="${usersWithDefaultAvatar}" var="userDefaultAvatar">
-					<div class="user-default">${userDefaultAvatar.username}</div>
-				</c:forEach>
+	<div id ="middle-wrapper">
+		<div id ="middle-container">
+			<div id="stat-wrapper">
+				<div id="stat-container">
+					<div id="stat" class="colonneStat">
+						<h2>Top 5 classes :</h2>
+						<c:forEach items="${fiveMostPlayedClasses}" var="clazzMostPlayed">
+				     		<div class="classPlayedName">${clazzMostPlayed.name} (${clazzMostPlayed.nbUsers})</div>
+				     		<!--<div class="classPlayedNb">${clazzMostPlayed.nbUsers}</div>-->
+				     	</c:forEach>
+					</div>
+					
+					<div id="races" class="colonneStat">
+					<h2>Top 5 Races :</h2>
+						<c:forEach items="${fiveMostPlayedRaces}" var="racesMostPlayed">
+							<div class="racesPlayedName">${racesMostPlayed.name} (${racesMostPlayed.nbUsers})</div>
+							<!-- <div class="racesPlayedNb">${racesMostPlayed.nbUsers}</div> -->
+						</c:forEach>
+					</div>
+					<div id="users-default-avatar" class="colonneStat">
+					<h2>Avatar par défaut :</h2>
+						<c:forEach items="${usersWithDefaultAvatar}" var="userDefaultAvatar">
+							<div class="user-default">${userDefaultAvatar.username}</div>
+						</c:forEach>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
