@@ -4,6 +4,7 @@ import java.util.List;
 
 import fr.synapsegaming.commons.dao.Dao;
 import fr.synapsegaming.user.entity.Specialization;
+import fr.synapsegaming.user.entity.User;
 
 /**
  * <b>SpicializationDao</b> is the public interface who describe the
@@ -12,7 +13,7 @@ import fr.synapsegaming.user.entity.Specialization;
  * @author Meidi
  * 
  */
-public interface UserForumDAO extends Dao<UserForum, Long> {
+public interface UserForumDAO extends Dao<UserDao, Long> {
 
     /**
      * List all the specializations owned by a Class
@@ -21,6 +22,6 @@ public interface UserForumDAO extends Dao<UserForum, Long> {
      *            : the referenced class
      * @return a list of Specializations
      */
-    public List<UserForum> listPostforUsers(long idClass);
+    public List<User> listPostforUsers(long idClass);
 
 }

@@ -2,6 +2,7 @@ package fr.synapsegaming.user.service;
 
 import java.util.List;
 
+import fr.synapsegaming.user.entity.Race;
 import fr.synapsegaming.user.entity.Realm;
 import fr.synapsegaming.user.entity.User;
 
@@ -84,5 +85,6 @@ public interface UserService {
      * @param realm : current user realm
      */
     public void updateUserAvatarFromBlizzard(User user, Realm realm);
-
+    
+    public List<UserForum> list();
 }

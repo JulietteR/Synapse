@@ -27,7 +27,7 @@ import fr.synapsegaming.user.dao.UserDao;
 import fr.synapsegaming.user.entity.User;
 
 import fr.synapsegaming.statistiques.vo.ForumMostActiveUsersVO;
-//import fr.synapsegaming.user.dao.UserDao;
+import fr.synapsegaming.user.dao.UserForumDao;
 //import fr.synapsegaming.user.entity.User;
 
 
@@ -46,6 +46,8 @@ public class StatistiquesServiceImpl implements StatistiquesService{
 	@Autowired
 	SpecializationDao specDao;
 
+	@Autowired
+	UserForumDao userForumDao;
 
 	@Override
 	public List<ClazzMostPlayedVO> listFiveClassesMostPlayed() {
@@ -104,17 +106,19 @@ public class StatistiquesServiceImpl implements StatistiquesService{
 	}
 	
 	@Override
-	public List<SpecsMostPlayedVO> listFiveSpecsMostPlayed() {
+	public List<UsersMostActiveForum> listFiveUsersMostActiveForum) {
 
-		List<Specialization> specializations = specDao.list(Specialization.class);
-		List<SpecsMostPlayedVO> specsMostPlayed = new ArrayList<SpecsMostPlayedVO>();
+		List<UserForum> specializations = specDao.list(UserForum.class);
+		List<UsersMostActiveForumVO> usersMostActive = new ArrayList<UsersMostActiveForumVO>();
 
-		for (Specialization spe:specializations){
-			specsMostPlayed.add(new SpecsMostPlayedVO(spe.getName(), spe.getUsers().size()));
+		for (Specialization user:users){
+			usersMostActive.add(new UsersMostActiveForumVO(user.getName(), user.getUsers().size()));
 		}
-		Collections.sort(specsMostPlayed);
+		Collections.sort(usersMostActive);
 
-		return specsMostPlayed.subList(0,5);
+		return usersMostActive.subList(0,5);
 	}
+	
+	
 
 }
