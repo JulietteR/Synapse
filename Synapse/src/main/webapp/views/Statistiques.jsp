@@ -57,6 +57,12 @@
 							<!-- <div class="racesPlayedNb">${racesMostPlayed.nbUsers}</div> -->
 						</c:forEach>
 					</div>
+					<h2>Top 5 Specs :</h2>
+					<c:forEach items="${fiveMostPlayedSpecs}" var="specsMostPlayed" >
+						<div class="racesPlayedName" >${specsMostPlayed.name} (${specsMostPlayed.nbUsers})</div>
+
+					</c:forEach>
+					</div>
 					<div id="users-default-avatar" class="colonneStat">
 					<h2>Avatar par défaut :</h2>
 						<c:forEach items="${usersWithDefaultAvatar}" var="userDefaultAvatar">

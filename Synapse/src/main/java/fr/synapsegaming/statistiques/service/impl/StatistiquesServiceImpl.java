@@ -4,10 +4,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import fr.synapsegaming.statistiques.service.StatistiquesService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import fr.synapsegaming.statistiques.service.StatistiquesService;
+
+import fr.synapsegaming.statistiques.vo.SpecsMostPlayedVO;
+import fr.synapsegaming.user.dao.SpecializationDao;
+import fr.synapsegaming.user.entity.Specialization;
 
 import fr.synapsegaming.statistiques.vo.ClazzMostPlayedVO;
 import fr.synapsegaming.user.dao.ClazzDao;
@@ -33,6 +38,9 @@ public class StatistiquesServiceImpl implements StatistiquesService{
 
 	@Autowired
 	UserDao userDao;
+
+	@Autowired
+	SpecializationDao specDao;
 
 
 	@Override
@@ -75,6 +83,20 @@ public class StatistiquesServiceImpl implements StatistiquesService{
 		}
 
 		return usersDefaultAvatar;
+	}
+
+	@Override
+	public List<SpecsMostPlayedVO> listFiveSpecsMostPlayed() {
+
+		List<Specialization> specializations = specDao.list(Specialization.class);
+		List<SpecsMostPlayedVO> specsMostPlayed = new ArrayList<SpecsMostPlayedVO>();
+
+		for (Specialization spe:specializations){
+			specsMostPlayed.add(new SpecsMostPlayedVO(spe.getName(), spe.getUsers().size()));
+		}
+		Collections.sort(specsMostPlayed);
+
+		return specsMostPlayed.subList(0,5);
 	}
 
 }

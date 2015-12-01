@@ -4,6 +4,7 @@ import java.util.List;
 
 import fr.synapsegaming.statistiques.vo.ClazzMostPlayedVO;
 import fr.synapsegaming.statistiques.vo.RacesMostPlayedVO;
+import fr.synapsegaming.statistiques.vo.SpecsMostPlayedVO;
 import fr.synapsegaming.statistiques.vo.UsersDefaultAvatarVO;
 
 public interface StatistiquesService {
@@ -17,4 +18,6 @@ public interface StatistiquesService {
 	List<RacesMostPlayedVO> listFiveRacesMostPlayed();
 
 	List<UsersDefaultAvatarVO> listUsersDefaultAvatar();
+
+	List<SpecsMostPlayedVO> listFiveSpecsMostPlayed();
 }
