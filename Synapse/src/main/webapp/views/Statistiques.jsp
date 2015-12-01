@@ -53,6 +53,11 @@
 					<div class="racesPlayedNb">${racesMostPlayed.nbUsers}</div>
 				</c:forEach>
 			</div>
+			<div id="users-default-avatar">
+				<c:forEach items="${usersWithDefaultAvatar}" var="userDefaultAvatar">
+					<div class="user-default">${userDefaultAvatar.username}</div>
+				</c:forEach>
+			</div>
 		</div>
 	</div>
 	<div id="footer-wrapper">

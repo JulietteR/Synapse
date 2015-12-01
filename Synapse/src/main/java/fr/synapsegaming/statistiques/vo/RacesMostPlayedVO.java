@@ -13,7 +13,7 @@ public class RacesMostPlayedVO implements Comparable<RacesMostPlayedVO> {
         this.nbUsers = nbUsers;
     }
 
-    public RacesMostPlayedVO() {
+    public RacesMostPlayedVO(String name) {
 
     }
 

@@ -17,6 +17,10 @@ import fr.synapsegaming.statistiques.vo.RacesMostPlayedVO;
 import fr.synapsegaming.user.dao.RaceDao;
 import fr.synapsegaming.user.entity.Race;
 
+import fr.synapsegaming.statistiques.vo.UsersDefaultAvatarVO;
+import fr.synapsegaming.user.dao.UserDao;
+import fr.synapsegaming.user.entity.User;
+
 
 @Service("StatistiquesService")
 public class StatistiquesServiceImpl implements StatistiquesService{
@@ -26,6 +30,9 @@ public class StatistiquesServiceImpl implements StatistiquesService{
 
 	@Autowired
 	RaceDao raceDao;
+
+	@Autowired
+	UserDao userDao;
 
 
 	@Override
@@ -54,5 +61,20 @@ public class StatistiquesServiceImpl implements StatistiquesService{
 		return racesMostPlayed.subList(0, 5);
 	}
 
+
+	@Override
+	public List<UsersDefaultAvatarVO> listUsersDefaultAvatar(){
+
+		List<User> users = userDao.list(User.class);
+		List<UsersDefaultAvatarVO> usersDefaultAvatar = new ArrayList<UsersDefaultAvatarVO>();
+
+		for (User user:users){
+			if (user.getForumAvatar().equals("/resources/img/default_avatar.png") == true ) {
+				usersDefaultAvatar.add(new UsersDefaultAvatarVO(user.getNickname()));
+			}
+		}
+
+		return usersDefaultAvatar;
+	}
 
 }

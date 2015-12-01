@@ -46,6 +46,7 @@ public class StatistiquesController extends AbstractController {
             page.addObject("userResources", resourceService.listUserResources(user.getGroup().getId()));
             page.addObject("fiveMostPlayedClasses", statistiquesService.listFiveClassesMostPlayed());
             page.addObject("fiveMostPlayedRaces", statistiquesService.listFiveRacesMostPlayed());
+            page.addObject("usersWithDefaultAvatar", statistiquesService.listUsersDefaultAvatar());
         return page;
     }
 
