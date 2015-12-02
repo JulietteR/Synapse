@@ -70,6 +70,12 @@
 							<div class="user-default">${userDefaultAvatar.username}</div>
 						</c:forEach>
 					</div>
+					<div id="users-most-active" class="colonneStat">
+						<h2>Top 5 users :</h2>
+						<c:forEach items="${usersMostActive}" var="userMostActive">
+							<div class="user-default">${userMostActive.username} (Social points : ${userMostActive.socialPoint} )</div>
+						</c:forEach>
+					</div>
 				</div>
 			</div>
 		</div>

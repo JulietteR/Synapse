@@ -48,6 +48,7 @@ public class StatistiquesController extends AbstractController {
             page.addObject("fiveMostPlayedRaces", statistiquesService.listFiveRacesMostPlayed());
             page.addObject("fiveMostPlayedSpecs", statistiquesService.listFiveSpecsMostPlayed());
             page.addObject("usersWithDefaultAvatar", statistiquesService.listUsersDefaultAvatar());
+            page.addObject("usersMostActive", statistiquesService.listFiveUsersMostActive());
         return page;
     }
 

@@ -94,7 +94,7 @@ public class User {
     /**
      * The list of articles of a User
      */
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_user")
     private Set<Article> articles;
 
@@ -155,16 +155,16 @@ public class User {
     /**
      * The list of posts in the forum
      */
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_post")
-    private List<ForumPost> posts;
+    private Set<ForumPost> posts;
 
     /**
      * The list of replies in the forum
      */
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_user")
-    private List<ForumReply> replies;
+    private Set<ForumReply> replies;
 
     /**
      * The list of events where the user has subscribed
@@ -312,19 +312,19 @@ public class User {
         this.group = group;
     }
 
-    public List<ForumPost> getPosts() {
+    public Set<ForumPost> getPosts() {
         return posts;
     }
 
-    public void setPosts(List<ForumPost> posts) {
+    public void setPosts(Set<ForumPost> posts) {
         this.posts = posts;
     }
 
-    public List<ForumReply> getReplies() {
+    public Set<ForumReply> getReplies() {
         return replies;
     }
 
-    public void setReplies(List<ForumReply> replies) {
+    public void setReplies(Set<ForumReply> replies) {
         this.replies = replies;
     }
 

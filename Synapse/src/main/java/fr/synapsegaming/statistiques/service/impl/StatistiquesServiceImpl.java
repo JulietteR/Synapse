@@ -6,23 +6,20 @@ import java.util.List;
 
 import fr.synapsegaming.statistiques.service.StatistiquesService;
 
+import fr.synapsegaming.statistiques.vo.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-import fr.synapsegaming.statistiques.vo.SpecsMostPlayedVO;
 import fr.synapsegaming.user.dao.SpecializationDao;
 import fr.synapsegaming.user.entity.Specialization;
 
-import fr.synapsegaming.statistiques.vo.ClazzMostPlayedVO;
 import fr.synapsegaming.user.dao.ClazzDao;
 import fr.synapsegaming.user.entity.Clazz;
 
-import fr.synapsegaming.statistiques.vo.RacesMostPlayedVO;
 import fr.synapsegaming.user.dao.RaceDao;
 import fr.synapsegaming.user.entity.Race;
 
-import fr.synapsegaming.statistiques.vo.UsersDefaultAvatarVO;
 import fr.synapsegaming.user.dao.UserDao;
 import fr.synapsegaming.user.entity.User;
 
@@ -97,6 +94,28 @@ public class StatistiquesServiceImpl implements StatistiquesService{
 		Collections.sort(specsMostPlayed);
 
 		return specsMostPlayed.subList(0,5);
+	}
+
+	@Override
+	public List<UsersMostActiveVO> listFiveUsersMostActive() {
+
+		List<User> users = userDao.list(User.class);
+		List<UsersMostActiveVO> usersMostActive = new ArrayList<UsersMostActiveVO>();
+
+		for (User user:users){
+
+			int numberOfArticles = user.getArticles().size();
+			int numberOfPosts = user.getPosts().size();
+			int numberOfComments = user.getReplies().size();
+
+			int socialPoints = numberOfArticles*3 + numberOfPosts*2 + numberOfComments;
+
+			usersMostActive.add(new UsersMostActiveVO(user.getNickname(), socialPoints  ));
+		}
+
+		Collections.sort(usersMostActive);
+
+		return usersMostActive.subList(0,5);
 	}
 
 }
